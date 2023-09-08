@@ -1,6 +1,6 @@
 import {IsString, IsNumber,IsBoolean} from 'class-validator'
 export class CreateBookDto{
-    @IsString()
+    @IsString({ message: 'Le nom doit être une chaîne de caractères.' })
     readonly nameBook: string;
 
     @IsNumber()

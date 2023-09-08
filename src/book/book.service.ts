@@ -7,7 +7,7 @@ import { BookRepository } from './book.Repository'
 @Injectable()
 export class BookService {
     constructor(
-        @InjectRepository(Book)
+        // @InjectRepository(Book)
         private readonly bookRepository: BookRepository
     ) {}
 

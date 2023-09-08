@@ -16,8 +16,8 @@ async findAll() {
     return await this.bookServie.getAll()
 }
 
-@Get('/OneBook:nameBook')
-async findOne(@Param('nameBook') nameBook: string):Promise<Book> {
+@Get('/One/:nameBook')
+async One(@Param('nameBook') nameBook: string):Promise<Book> {
     return await this.bookServie.getOne(nameBook)
 }
 
