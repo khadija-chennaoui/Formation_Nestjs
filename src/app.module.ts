@@ -14,15 +14,15 @@ import { BookService } from "./book/book.service";
   providers: [UserService], 
 })
 export class UserModule {}
-// @Module({
-//   imports: [TypeOrmModule.forRoot(typeOrmConfig), TypeOrmModule.forFeature([Book])],
-//   controllers: [bookController], 
-//   providers: [BookService], 
-// })
-// export class BookModule {}
+@Module({
+  imports: [TypeOrmModule.forRoot(typeOrmConfig), TypeOrmModule.forFeature([Book])],
+  controllers: [bookController], 
+  providers: [BookService], 
+})
+export class BookModule {}
 
 @Module({
-  imports: [UserModule], 
+  imports: [UserModule, BookModule], 
 })
 
 export class AppModule {}
