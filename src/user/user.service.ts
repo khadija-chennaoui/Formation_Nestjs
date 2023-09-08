@@ -22,11 +22,13 @@ export class UserService {
   async createUser(user: User): Promise<User> {
   const result = await this.userRepository.insert(user);
   if (result.identifiers.length > 0) {
-    // L'insertion a réussi, vous pouvez renvoyer l'utilisateur inséré
+  
     return user;
+
   } else {
-    // L'insertion a échoué, vous pouvez gérer l'erreur ici
+    
     throw new Error("Failed to insert user.");
+  
   }
 }
 }
