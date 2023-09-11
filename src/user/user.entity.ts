@@ -1,5 +1,5 @@
 // user.entity.ts
-import { Entity, ObjectIdColumn, ObjectId, Column } from 'typeorm';
+import { Entity, Column, ObjectId,ObjectIdColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -11,5 +11,4 @@ export class User {
 
   @Column()
   email: string;
-
 }
