@@ -1,11 +1,20 @@
-export default () => ({
-  port: process.env.DB_PORT,
-  type: process.env.DB_TYPE,
-  host: process.env.DB_HOST,
-  password: process.env.DB_PASSWORD,
-  username: process.env.DB_USERNAME,
+/* eslint-disable prettier/prettier */
+import { DataSource, DataSourceOptions } from 'typeorm';
+import { ConfigModule } from '@nestjs/config';
+
+ConfigModule.forRoot();
+
+export const options: DataSourceOptions = {
+  type: 'postgres',
   database: process.env.DB_DATABASE,
-  entities: process.env.DB_ENTITIES,
-  synchronize:process.env.DB_SYNCHRONIZE,
-  logging:process.env.DB_LOGGING,
-});
+  host: process.env.DB_HOST,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  port: parseInt(process.env.DB_PORT),
+  entities: [__dirname + './../**/*.entity{.ts,.js}'],
+  synchronize: false,
+  migrations: [__dirname + './../migrations/*{.ts,.js}'],
+};
+
+export const AppDataSource = new DataSource(options);
+
