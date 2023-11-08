@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: rcu-db
+    image: postgres:15
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USERNAME: ${DB_USERNAME}
+    ports:
+      - '${DB_PORT}:5432'
+    volumes:
+      - ./database-data:/data
+
+  adminer:
+    image: adminer
+    ports:
+      - 2000:8080
+    depends_on:
+      - postgres
+volumes:
+  database-data:
+  
