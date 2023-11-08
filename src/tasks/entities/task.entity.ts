@@ -8,7 +8,7 @@ export class Task {
 id: number;
 
 @Column()
-title : String ;
+title: String ;
 
 @Column()
 description : String ;
@@ -19,11 +19,19 @@ date_debut : Date ;
 @Column()
 date_dechaence : Date ;
 
-@Column()
-status: Status
+@Column({
+  type: 'enum',
+  enum: Status,
+  default :Status.ToDo
+})
+status: string
 
-@Column()
-priority: Priority
+@Column({
+  type: 'enum',
+  enum: Priority,
+  nullable:true
+})
+priority: string
 
 @ManyToOne(() => User, user => user.tasks)
   user: User;
