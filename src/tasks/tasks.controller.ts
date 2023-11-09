@@ -12,7 +12,7 @@ export class TasksController {
     return this.tasksService.create(createTaskDto);
   }
 
-  @Get('AllTasks')
+  @Get('/AllTasks')
   findAll() {
     return this.tasksService.findAll();
   }

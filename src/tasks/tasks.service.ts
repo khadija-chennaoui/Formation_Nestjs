@@ -18,8 +18,12 @@ export class TasksService {
       
   }
 
-  findAll() {
-    return `This action returns all tasks`; 
+  async findAll() {
+    try{
+      return await this.tasksRepository.findAllTask()
+    }catch(error){
+      throw new Error("No Task There is no pending task")
+    }
   }
 
   findOne(id: number) {
