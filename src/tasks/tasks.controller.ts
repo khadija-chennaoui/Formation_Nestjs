@@ -2,14 +2,29 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
+import { IServiceResponse } from 'src/response/service.response';
+import { Task } from './entities/task.entity';
+import { SuccesResponse } from 'src/response';
+import LoggerAdapter from 'core/logger/logger.adapter';
 
 @Controller('tasks')
 export class TasksController {
-  constructor(private readonly tasksService: TasksService) {}
+  private context ; 
+  constructor(private readonly tasksService: TasksService ,  private readonly logger: LoggerAdapter)  {
+    this.context = this.constructor.name;
+  }
 
   @Post('/AddTask')
-  create(@Body() createTaskDto: CreateTaskDto) {
-    return this.tasksService.create(createTaskDto);
+  async create(@Body() createTaskDto: CreateTaskDto) : Promise<IServiceResponse< Task>> {
+    // return this.tasksService.create(createTaskDto);
+   try{
+      this.logger.info('Task created :)',this.context)
+      const task = await this.tasksService.create(createTaskDto)
+       return SuccesResponse(task)
+    }catch(error){
+      // throw new Error("🐞 error")
+      this.logger.error(error, this.context);
+    }
   }
 
   @Get('/AllTasks')
