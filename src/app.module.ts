@@ -7,7 +7,7 @@ import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { WinstonModule } from 'nest-winston';
 import { WINSTON_CONFIG } from './config/winston.config';
-import  LoggerAdapter  from '../core/logger/logger.adapter';
+import  LoggerAdapter  from './core/logger.adapter';
 @Module({
   imports: [
     TypeOrmModule.forRoot(options),

@@ -11,7 +11,7 @@ export class TasksRepository {
     private readonly taskRepository: Repository<Task>,
   ) {}
 
-  async findByName(id: number): Promise<Task> {
+  async findById(id: number): Promise<Task> {
     return await this.taskRepository.findOneBy({ id } );
   }
   async createTask(createtask: CreateTaskDto): Promise<Task> {
