@@ -46,15 +46,30 @@ export class TasksService {
     }
   }
 
-  update(id: number, updateTaskDto: UpdateTaskDto) {
-    return `This action updates a #${id} task`;
+  async update(id: number, updateTaskDto: UpdateTaskDto) {
+    try{
+      const updatetask = await this.tasksRepository.udateTask(id,{
+        status: updateTaskDto.status,
+        title: updateTaskDto.title,
+        priority: updateTaskDto.priority,
+        description: updateTaskDto.description,
+        date_debut: updateTaskDto.date_debut,
+        date_dechaence: updateTaskDto.date_dechaence,
+      })
+      this.logger.info('Task updated',this.context)
+      return SuccesResponse(updatetask)
+    }catch(error){
+      this.logger.error(error, this.context)
+    }
+   
+
   }
 
   async remove(id: number) {
     try {
       let task = await this.tasksRepository.findById(id);
       if (task) {
-        const deletetask = await this.tasksRepository.DeleteTask(id);
+        const deletetask = await this.tasksRepository.deleteTask(id);
         this.logger.info(`Task deleted : ${id}`, this.context);
         return SuccesResponse(deletetask);
       } else this.logger.info(`id:${id} does not exist`, this.context);

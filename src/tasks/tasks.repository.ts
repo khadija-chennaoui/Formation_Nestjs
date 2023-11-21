@@ -3,6 +3,7 @@ import { Task } from './entities/task.entity';
 import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { InjectRepository } from '@nestjs/typeorm';
+import { UpdateTaskDto } from './dto/update-task.dto';
 
 @Injectable()
 export class TasksRepository {
@@ -20,7 +21,17 @@ export class TasksRepository {
   async findAllTask(): Promise<Task[]> {
     return this.taskRepository.find();
   }
-  async DeleteTask(id: number): Promise<{ affected?: number }> {
+  async deleteTask(id: number): Promise<{ affected?: number }> {
     return await this.taskRepository.delete(id);
+  }
+  async udateTask(id:number,updateTaskDto:UpdateTaskDto){
+   return await this.taskRepository.update(id,{
+    status: updateTaskDto.status,
+    title: updateTaskDto.title,
+    priority: updateTaskDto.priority,
+    description: updateTaskDto.description,
+    date_debut: updateTaskDto.date_debut,
+    date_dechaence: updateTaskDto.date_dechaence,
+   })
   }
 }
