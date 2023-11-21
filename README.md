@@ -3,23 +3,23 @@
 </p>
 
 
-## Installation :
+# Installation :
 
 ```bash
 $ npm install
 ```
 
-## Running the app :
+# Running the app :
 
 ```bash
-# development
+- development
 $ npm run start
 
-# watch mode
+- watch mode
 $ npm run start:dev
 ```
 
-## Description de projet :
+# Description de projet :
 ```
   Ce projet est une application TO_DO_Nest simple mais puissante conçue pour  
   vous aider à organiser et gérer vos tâches efficacement.  
@@ -27,9 +27,9 @@ $ npm run start:dev
   cette application TO_DO_Nest offre une interface propre et intuitive pour garder vos tâches sous contrôle.
 ```
 
-## Fonctionnalités :
+# Fonctionnalités :
 ```
-** Gestion des tâches: Ajoutez, modifiez et supprimez des tâches facilement.
+- Gestion des tâches: Ajoutez, modifiez et supprimez des tâches facilement.
 - Priorisation : Attribuez des priorités aux tâches pour vous concentrer sur l'essentiel.
 - Dates d'échéance : Définissez des dates d'échéance pour suivre les délais et rester organisé.
 - Interface conviviale : Conception intuitive pour une expérience utilisateur fluide.
