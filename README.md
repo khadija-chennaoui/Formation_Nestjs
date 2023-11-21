@@ -30,9 +30,14 @@ $ npm run start:dev
 
 ## Fonctionnalités :
 ```bash
-* Gestion des tâches :Ajoutez, modifiez et supprimez des tâches facilement.
-* Priorisation : Attribuez des priorités aux tâches pour vous concentrer sur l'essentiel.
-* Dates d'échéance : Définissez des dates d'échéance pour suivre les délais et rester organisé.
-* Interface conviviale : Conception intuitive pour une expérience utilisateur fluide.
-* Réactif : Accédez et gérez vos tâches sur différents appareils.
+* Gestion des tâches 
+Ajoutez, modifiez et supprimez des tâches facilement.
+* Priorisation 
+Attribuez des priorités aux tâches pour vous concentrer sur l'essentiel.
+* Dates d'échéance 
+Définissez des dates d'échéance pour suivre les délais et rester organisé.
+* Interface conviviale 
+Conception intuitive pour une expérience utilisateur fluide.
+* Réactif 
+Accédez et gérez vos tâches sur différents appareils.
 ```
