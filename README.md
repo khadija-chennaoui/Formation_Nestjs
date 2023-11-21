@@ -1,10 +1,6 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
-<!-- [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest -->
-<!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-[![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 
 ## Installation :
@@ -29,15 +25,10 @@ $ npm run start:dev
 ```
 
 ## Fonctionnalités :
-```bash
-* Gestion des tâches 
-Ajoutez, modifiez et supprimez des tâches facilement.
-* Priorisation 
-Attribuez des priorités aux tâches pour vous concentrer sur l'essentiel.
-* Dates d'échéance 
-Définissez des dates d'échéance pour suivre les délais et rester organisé.
-* Interface conviviale 
-Conception intuitive pour une expérience utilisateur fluide.
-* Réactif 
-Accédez et gérez vos tâches sur différents appareils.
+```
+- Gestion des tâches: Ajoutez, modifiez et supprimez des tâches facilement.
+- Priorisation :Attribuez des priorités aux tâches pour vous concentrer sur l'essentiel.
+- Dates d'échéance :Définissez des dates d'échéance pour suivre les délais et rester organisé.
+- Interface conviviale :Conception intuitive pour une expérience utilisateur fluide.
+- Réactif :Accédez et gérez vos tâches sur différents appareils.
 ```
