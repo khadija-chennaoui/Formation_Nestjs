@@ -4,6 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UpdateTaskDto } from './dto/update-task.dto';
+import { ILike } from 'typeorm';
 
 @Injectable()
 export class TasksRepository {
@@ -14,6 +15,9 @@ export class TasksRepository {
 
   async findById(id: number): Promise<Task> {
     return await this.taskRepository.findOneBy({ id } );
+  }
+  async findByTitle(startOfTitle: string): Promise<Task> {
+    return await this.taskRepository.findOne({where: { title: ILike(`${startOfTitle}%`)}});
   }
   async createTask(createtask: CreateTaskDto): Promise<Task> {
     return await this.taskRepository.save(createtask);

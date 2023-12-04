@@ -45,6 +45,15 @@ export class TasksService {
       this.logger.error(error, this.context);
     }
   }
+  async filtre(title: string) {
+    try {
+      const onetask = await this.tasksRepository.findByTitle(title);
+      this.logger.info('Search by title done', this.context);
+      return SuccesResponse(onetask);
+    } catch (error) {
+      this.logger.error(error, this.context);
+    }
+  }
 
   async update(id: number, updateTaskDto: UpdateTaskDto) {
     try{
@@ -78,3 +87,5 @@ export class TasksService {
     }
   }
 }
+
+
