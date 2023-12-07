@@ -1,24 +1,28 @@
-version: '3.8'
+version: '3'
 
 services:
-  postgres:
-    container_name: rcu-db
-    image: postgres:15
+  keycloak:
+    image: jboss/keycloak:latest
     environment:
-      POSTGRES_DB: ${DB_DATABASE}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_USERNAME: ${DB_USERNAME}
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_PORT: 5432
+      DB_DATABASE: keycloak
+      DB_SCHEMA: public
+      DB_USER: postgres
+      DB_PASSWORD: azerty
     ports:
-      - '${DB_PORT}:5432'
-    volumes:
-      - ./database-data:/data
-
-  adminer:
-    image: adminer
-    ports:
-      - 2000:8080
+      - "8080:8080"
     depends_on:
       - postgres
-volumes:
-  database-data:
-  
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: azerty
+    ports:
+      - "5432:5432"
