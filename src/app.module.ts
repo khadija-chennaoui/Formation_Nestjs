@@ -8,8 +8,15 @@ import { UsersModule } from './users/users.module';
 import { WinstonModule } from 'nest-winston';
 import { WINSTON_CONFIG } from './config/winston.config';
 import  LoggerAdapter  from './core/logger.adapter';
+import { keycloakConfigService } from './keycloak/keycloak_config_service';
+import { keycloadModule } from './keycloak/keycloak_module';
+import { KeycloakConnectModule } from 'nest-keycloak-connect/keycloak-connect.module';
 @Module({
   imports: [
+    KeycloakConnectModule.registerAsync({
+      useExisting: keycloakConfigService,
+      imports : [keycloadModule]
+    }),
     TypeOrmModule.forRoot(options),
     WinstonModule.forRoot(WINSTON_CONFIG),
     TasksModule,
