@@ -17,6 +17,13 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
+  
+ adminer:
+    image: adminer
+    ports:
+      - 2000:8080
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres
@@ -24,5 +31,6 @@ services:
       POSTGRES_DB: keycloak
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: azerty
+
     ports:
       - "5432:5432"
